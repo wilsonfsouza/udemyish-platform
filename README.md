@@ -133,3 +133,6 @@ npx prisma studio
 https://docs.nestjs.com/graphql/quick-start
 
 controller -> becomes resolver
+
+## Purchases
+It's really important that the database tables for this services to be in the purchase domain. When working with microservices, it's important to bring the naming of our entities the closest to the context of the application. EX: Domain - purchase; who buys the product -> customer not user (user is too generic).
