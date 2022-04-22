@@ -4,7 +4,7 @@ import { AuthorizationGuard } from "src/http/auth/authorization.guard";
 import { PurchasesService } from "src/services/purchases.service";
 import { Purchase } from "../models/purchase";
 
-@Resolver()
+@Resolver(() => Purchase)
 export class PurchasesResolver {
   constructor(
     private purchasesService: PurchasesService
