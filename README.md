@@ -136,3 +136,17 @@ controller -> becomes resolver
 
 ## Purchases
 It's really important that the database tables for this services to be in the purchase domain. When working with microservices, it's important to bring the naming of our entities the closest to the context of the application. EX: Domain - purchase; who buys the product -> customer not user (user is too generic).
+
+## Purchase
+
+services -> receive the customer id because we are in a service layer of the app, so we don't have access to the context of the request
+resolver -> don't receive customerId in data because customerId is not an information that the frontend will send. The customerId will be acquired through the context of the request because the user is already authenticated
+
+## List "my" purchases
+Now we need to know what are the purchases of a logged in user. Currently, the Customer table has no reference of a customer.
+
+We will add a customer reference to the purchase between Purchases service and user from Auth0
+
+Each user in Auth0 has a unique id
+
+In the customer table, I will add a reference to Auth0 unique id for the logged in user (authUserId). Adding the field as optional because we can provide other ways to get a customer id that does not come from auth0.
